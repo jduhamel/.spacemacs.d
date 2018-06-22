@@ -9,7 +9,7 @@
 ;; All configuration is housed in personal layers - see README.
 ;; `init.el' configures spacemacs, defining required `dotspacemacs/...' functions.
 
-(defvar ERIC-ONLY? t
+(defvar ERIC-ONLY? nil
   "If cloning, set to nil, enable non-layer personal configuration.")
 
 (defvar linux? (eq system-type 'gnu/linux)
@@ -101,8 +101,16 @@
     c-c++
     emacs-lisp
     hy
+    lua
     javascript
+    react
     rust
+    scheme
+
+    (javascripe :variables
+                tern-command '("/usr/local/bin/tern")
+                js2-basic-offset 2
+                js-indent-level 2)
 
     (clojure :variables
              clojure-enable-fancify-symbols t)
@@ -121,7 +129,7 @@
 (defvar dotspacemacs/layers/extra
   '(gnus
     graphviz
-    pdf-tools
+;;    pdf-tools
     ranger
 
     (ibuffer :variables
@@ -147,6 +155,7 @@
 (defun dotspacemacs/layers/packages ()
   (setq-default
    dotspacemacs-additional-packages '(solarized-theme
+                                      abyss-theme
                                       nord-theme
                                       faceup)
    dotspacemacs-excluded-packages '(fringe
@@ -161,7 +170,7 @@
   (setq-default
    dotspacemacs-folding-method 'evil
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
@@ -173,6 +182,7 @@
 (defun dotspacemacs/init/display ()
   (setq-default
    dotspacemacs-themes '(zenburn
+                         abyss
                          solarized-light)
    dotspacemacs-default-font `("operator mono medium"  ; Note: Bought this font
                                :size ,(cond ((not linux?) 12)
@@ -183,8 +193,8 @@
    dotspacemacs-fullscreen-at-startup (if linux? nil t)
    dotspacemacs-fullscreen-use-non-native nil
    dotspacemacs-maximized-at-startup nil
-   dotspacemacs-active-transparency 90
-   dotspacemacs-inactive-transparency 90
+;   dotspacemacs-active-transparency 90
+;   dotspacemacs-inactive-transparency 90
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-zone-out-when-idle nil
    dotspacemacs-frame-title-format "%I@%S"
@@ -195,7 +205,7 @@
 
 (defun dotspacemacs/init/evil ()
   (setq-default
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'emacs
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-retain-visual-state-on-shift t
@@ -226,7 +236,7 @@
    dotspacemacs-scratch-mode 'org-mode
    dotspacemacs-default-layout-name "Default"
    dotspacemacs-display-default-layout nil
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    dotspacemacs-auto-generate-layout-names t
    dotspacemacs-switch-to-buffer-prefers-purpose nil))
 
