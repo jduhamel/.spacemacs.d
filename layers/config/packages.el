@@ -29,7 +29,7 @@
         'native))
 
 (defun config/pre-init-yasnippet ()
-  (global-set-key (kbd "C-SPC") 'hippie-expand))
+  (global-set-key (kbd "M-/") 'hippie-expand))
 
 ;;; Local Config
 

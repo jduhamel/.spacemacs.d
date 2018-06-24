@@ -11,6 +11,8 @@
 
 (defvar ERIC-ONLY? nil
   "If cloning, set to nil, enable non-layer personal configuration.")
+(defvar JSD-ONLY? t
+  "Personal cofniguration information")
 
 (defvar linux? (eq system-type 'gnu/linux)
   "Are we on a gnu/linux machine?")
@@ -49,7 +51,7 @@
 (defun dotspacemacs/user-config ()
   "Configuration that cannot be delegated to layers."
   (dotspacemacs/user-config/toggles)
-  (dotspacemacs/user-config/eric-only)
+  (dotspacemacs/user-config/jsd-only)
   (dotspacemacs/user-config/experiments))
 
 ;;; Spacemacs/Layers
@@ -68,8 +70,13 @@
 ;;;; Core
 
 (defvar dotspacemacs/layers/core
-  '(better-defaults
-    git
+  '(
+    (better-defaults :variables
+                    better-defaults-move-to-beginning-of-code-first t
+                    better-defaults-move-to-end-of-code-first t)
+
+    (git :variables git-magit-status-fullscreen t)
+
     syntax-checking
 
     (auto-completion :variables
@@ -82,6 +89,7 @@
          org-want-todo-bindings t)
     (shell :variables
            shell-default-shell 'eshell)
+
     (version-control :variables
                      version-control-global-margin t
                      version-control-diff-tool 'git-gutter+))
@@ -104,14 +112,16 @@
     lua
     javascript
     react
+    go
+    haskell
     rust
     scheme
+    shell-scripts
 
-    (javascripe :variables
+    (javascript :variables
                 tern-command '("/usr/local/bin/tern")
                 js2-basic-offset 2
                 js-indent-level 2)
-
     (clojure :variables
              clojure-enable-fancify-symbols t)
     (haskell :variables
@@ -184,10 +194,8 @@
    dotspacemacs-themes '(zenburn
                          abyss
                          solarized-light)
-   dotspacemacs-default-font `("operator mono medium"  ; Note: Bought this font
-                               :size ,(cond ((not linux?) 12)
-                                            (desktop? 20)
-                                            (t 34))
+   dotspacemacs-default-font `("Operator Mono"  ; Note: Bought this font
+                               :size 16
                                :powerline-scale 1.5)
 
    dotspacemacs-fullscreen-at-startup (if linux? nil t)
@@ -285,6 +293,31 @@
   (fringe-mode '(0 . 8)))
 
 ;;;; Eric Only
+
+(defun dotspacemacs/user-config/jsd-only ()
+  "Personal configuration"
+  (when JSD-ONLY?
+    (setq powerline-default-separator 'utf-8)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'super)
+  (setq multi-term-program "/usr/local/bin/zsh")
+  ;;(setq insert-directory-program (executable-find "gls"))
+  (setq-default
+   standard-indent 2
+   tab-width 2
+   indent-tabs-mode nil
+   js-indent-level 2
+   js2-basic-offset 2
+   js2-strict-semi-warning nil
+   js2-missing-semi-one-line-override nil
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-indent-style 2)
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))))
 
 (defun dotspacemacs/user-config/eric-only ()
   "Personal configuration updates and experiments."
