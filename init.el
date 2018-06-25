@@ -301,7 +301,7 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super)
   (setq multi-term-program "/usr/local/bin/zsh")
-  ;;(setq insert-directory-program (executable-find "gls"))
+  (setq insert-directory-program "/usr/local/bin/gls")
   (setq-default
    standard-indent 2
    tab-width 2
