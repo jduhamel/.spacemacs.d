@@ -166,6 +166,7 @@
   (setq-default
    dotspacemacs-additional-packages '(solarized-theme
                                       abyss-theme
+                                      material-theme
                                       nord-theme
                                       faceup)
    dotspacemacs-excluded-packages '(fringe
@@ -191,9 +192,11 @@
 
 (defun dotspacemacs/init/display ()
   (setq-default
-   dotspacemacs-themes '(zenburn
-                         abyss
+   dotspacemacs-themes '(abyss
+                         material
+                         zenburn
                          solarized-light)
+
    dotspacemacs-default-font `("Operator Mono"  ; Note: Bought this font
                                :size 16
                                :powerline-scale 1.5)
