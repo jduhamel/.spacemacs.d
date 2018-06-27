@@ -85,6 +85,7 @@
 ;;; Zenburn
 ;;;; Outlines
 
+
 (setq display/zenburn/outlines
       `((outline-1 :height 1.35
                    :foreground "#DFAF8F"
@@ -141,7 +142,6 @@
 
 ;;;; Mode-line
 
-
 (setq display/zenburn/mode-line
       `(;; active modeline has no colors
         (mode-line :inherit mode-line :background "#3F3F3F"
@@ -183,7 +183,93 @@
 
         (fringe :background nil)))
 
-;;; Set Theme Changes
+;;; Material Theme
+;;;; Material/Outlines
 
+(setq display/material/outlines
+      `((outline-1 :height 1.35
+                   :foreground "#DFAF8F"
+                   :weight ,(if linux? 'normal 'ultra-bold)
+                   :italic nil
+                   :underline t)
+
+        (outline-2 :height 1.25
+                   :foreground "#BFEBBF"
+                   :weight ,(if linux? 'normal 'ultra-bold)
+                   :italic nil
+                   :underline t
+                   :inherit nil)
+
+        (outline-3 :height 1.15
+                   :foreground "#7CB8BB"
+                   :weight ,(if linux? 'normal 'ultra-bold)
+                   :italic nil
+                   :underline t
+                   :inherit nil)
+
+        (org-level-1 :height 1.35
+                     :inherit nil
+                     :foreground "#DFAF8F"
+                     :weight ,(if linux? 'normal 'ultra-bold)
+                     :italic nil
+                     :underline t
+                     :inherit nil)
+
+        (org-level-2 :height 1.25
+                     :inherit nil
+                     :foreground "#BFEBBF"
+                     :weight ,(if linux? 'normal 'ultra-bold)
+                     :italic nil
+                     :underline t
+                     :inherit nil)
+
+        (org-level-3 :height 1.15
+                     :inherit nil
+                     :foreground "#7CB8BB"
+                     :weight ,(if linux? 'normal 'ultra-bold)
+                     :italic nil
+                     :inherit nil)
+
+        (org-block-begin-line :height 1.05 :foreground "#576e75"
+                              :box t :weight bold)
+        (org-block-end-line :height 1.05 :foreground "#576e75"
+                            :box t :weight bold)
+
+        ;; material specific changes
+        (oi-face-1 :inherit outline-1)
+        (oi-face-2 :inherit outline-2 :underline nil)
+        (oi-face-3 :inherit outline-3 :underline nil)))
+
+;;;; Material/Mode-line
+(setq display/material/mode-line
+      `(
+        (mode-line :inherit mode-line :box nil :underline nil :overline nil)
+        (mode-line-inactive :inherit mode-line :background "#330099"
+                            :box nil :underline nil :overline nil)
+        (spaceline-highlight-face :inherit mode-line :background "#330099")
+        (powerline-active1 :inherit mode-line :background "#330099")
+        (powerline-active2 :inherit mode-line :background "#330099")
+        (powerline-inactive2 :inherit powerline-inactiv1 :background nil)))
+
+;;;; Material/Font-Lock faces
+(setq display/material/font-lock-faces
+      `((font-lock-type-face :foreground "LightCoral")
+        (font-lock-function-name-face :foreground "CadetBlue2")
+        (font-lock-comment-delimiter-face :foreground "gray35")
+        (font-lock-comment-face :italic t :weight normal :foreground "gray50")
+        (font-lock-doc-face :italic t :weight normal :foreground "gray65")))
+
+
+;;;; Material/Grouped
+(setq display/material
+      `(material
+        ,@display/material/outlines
+        ,@display/material/mode-line
+        ,@display/material/font-lock-faces
+        (default :background "#050000")))
+
+;;; Set Theme Changes
 (setq theming-modifications (list display/zenburn
-                                  display/solarized-light-theming))
+                                  display/solarized-light-theming
+                                  display/material
+                                  ))

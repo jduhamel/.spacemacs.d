@@ -46,7 +46,7 @@
 
 (defun dotspacemacs/user-init ()
   "Package independent settings to run before `dotspacemacs/user-config'."
-  (setq custom-file "./elisp/.custom-settings.el"))
+  (setq custom-file (expand-file-name "~/.emacs.d/elisp/.custom-settings.el")))
 
 (defun dotspacemacs/user-config ()
   "Configuration that cannot be delegated to layers."
@@ -139,6 +139,7 @@
 (defvar dotspacemacs/layers/extra
   '(gnus
     graphviz
+    theming
 ;;    pdf-tools
     ranger
 
@@ -191,9 +192,10 @@
 ;;;; Display
 
 (defun dotspacemacs/init/display ()
+
   (setq-default
-   dotspacemacs-themes '(abyss
-                         material
+   dotspacemacs-themes '(material
+                         abyss
                          zenburn
                          solarized-light)
 
@@ -201,7 +203,7 @@
                                :size 16
                                :powerline-scale 1.5)
 
-   dotspacemacs-fullscreen-at-startup (if linux? nil t)
+   ;;dotspacemacs-fullscreen-at-startup (if linux? nil t)
    dotspacemacs-fullscreen-use-non-native nil
    dotspacemacs-maximized-at-startup nil
 ;   dotspacemacs-active-transparency 90
