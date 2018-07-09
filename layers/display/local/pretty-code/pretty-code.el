@@ -12,28 +12,29 @@
   (-flatten
    (prettify-utils-generate
     ;; Functional
-    (:lambda      "λ")
-    (:def         "ƒ")
-    (:composition "∘")
+;;    (:lambda      "λ")
+;;    (:def         "ƒ")
+;;    (:composition "∘")
 
     ;; Types
-    (:null        "∅")
-    (:true        "𝕋") (:false       "𝔽")
-    (:int         "ℤ") (:float       "ℝ")
-    (:str         "𝕊")
-    (:bool        "𝔹")
+ ;;   (:null        "∅")
+ ;;   (:true        "𝕋") (:false       "𝔽")
+    ;; (:int         "ℤ")
+    ;; (:float       "ℝ")
+    ;; (:str         "𝕊")
+    ;; (:bool        "𝔹")
 
     ;; Flow
-    (:not         "￢")
-    (:in          "∈") (:not-in      "∉")
-    (:and         "∧") (:or          "∨")
-    (:for         "∀")
-    (:some        "∃")
-    (:return     "⟼") (:yield      "⟻")
+    ;; (:not         "￢")
+    ;; (:in          "∈") (:not-in      "∉")
+    ;; (:and         "∧") (:or          "∨")
+    ;; (:for         "∀")
+    ;; (:some        "∃")
+    ;; (:return     "⟼") (:yield      "⟻")
 
     ;; Other
-    (:tuple       "⨂")
-    (:pipe        "")
+;;    (:tuple       "⨂")
+;;    (:pipe        "")
     ))
   "Options plist for `pretty-code-get-pairs'.")
 

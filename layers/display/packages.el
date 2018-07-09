@@ -12,7 +12,7 @@
                                           :repo "Ilazki/prettify-utils.el"))
 
         ;; Owned Local Display Packages
-        (pretty-code :location local)
+;;        (pretty-code :location local)
         (pretty-eshell :location local)
         (pretty-fonts :location local)
         (pretty-magit :location local)
@@ -28,7 +28,7 @@
     :after prettify-utils macros
     :config
     (progn
-      (global-prettify-symbols-mode 1)
+      ;(global-prettify-symbols-mode 1)
 
       (setq hy-pretty-pairs
             (pretty-code-get-pairs
