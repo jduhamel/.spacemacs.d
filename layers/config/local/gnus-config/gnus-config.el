@@ -3,8 +3,8 @@
 (provide 'gnus-config)
 
 
-(setq user-mail-address "ekaschalk@gmail.com")
-(setq user-full-name "Eric Kaschalk")
+(setq user-mail-address "jduhamel@gmail.com")
+(setq user-full-name "Joe Duhamel")
 
 (setq mm-inline-large-images 'resize)
 

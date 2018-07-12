@@ -14,4 +14,4 @@
 
 
 (evil-global-set-keys '(normal insert)
-                      (kbd "C-e") 'eshell-pop-eshell)
+                      (kbd "H-e") 'eshell-pop-eshell)

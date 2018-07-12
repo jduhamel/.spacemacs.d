@@ -2,7 +2,7 @@
 
 ;; Windows commands
 (global-set-key
- (kbd "M-d") 'spacemacs/delete-window)
+ (kbd "H-d") 'spacemacs/delete-window)
 (evil-define-key 'normal outline-minor-mode-map
   (kbd "C-M-i") 'spacemacs/alternate-buffer)  ; M-tab
 

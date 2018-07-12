@@ -170,6 +170,7 @@
                                       material-theme
                                       nord-theme
                                       faceup)
+
    dotspacemacs-excluded-packages '(fringe
                                     importmagic)
    dotspacemacs-frozen-packages '()
@@ -183,15 +184,17 @@
    dotspacemacs-folding-method 'evil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-line-numbers t
-   dotspacemacs-smartparens-strict-mode nil
-   dotspacemacs-smart-closing-parenthesis nil
-   dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
+   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smart-closing-parenthesis t
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    dotspacemacs-smooth-scrolling t
    dotspacemacs-whitespace-cleanup 'trailing))
 
 ;;;; Display
 
 (defun dotspacemacs/init/display ()
+  (define-key global-map (kbd "C-+") 'text-scale-increase)
+  (define-key global-map (kbd "C--") 'text-scale-decrease)
 
   (setq-default
    dotspacemacs-themes '(material
@@ -240,7 +243,10 @@
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
-   dotspacemacs-distinguish-gui-tab nil))
+   dotspacemacs-distinguish-gui-tab nil)
+
+
+   )
 
 ;;;; Layouts
 
@@ -319,6 +325,9 @@
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    web-mode-indent-style 2)
+
+
+
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
