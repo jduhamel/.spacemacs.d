@@ -4,7 +4,7 @@
 
 (require 'smartparens-config)
 
-defvar jsd-sp-bind '(
+(defvar jsd-sp-bind '(
                      ("C-M-a" . sp-beginning-of-sexp)
                      ("C-M-e" . sp-end-of-sexp)
                      ("C-<down>" . sp-down-sexp)
@@ -33,8 +33,7 @@ defvar jsd-sp-bind '(
                      ("C-M-d" . delete-sexp)
                      ("M-<backspace>" . backward-kill-word)
                      ("C-<backspace>" . sp-backward-kill-word)
-;                        ([remap sp-backward-kill-word] . backward-kill-word)
-                     ("M-[" . sp-backward-unwrap-sexp)
+                     ("M-[" . sp-backward-unwrap-sexp) ;                        ([remap sp-backward-kill-word] . backward-kill-word)
                      ("M-]" . sp-unwrap-sexp)
                      ("C-x C-t" . sp-transpose-hybrid-sexp)
                      ("C-c ("  . wrap-with-parens)
@@ -44,6 +43,5 @@ defvar jsd-sp-bind '(
                      ("C-c \"" . wrap-with-double-quotes)
                      ("C-c _"  . wrap-with-underscores)
                      ("C-c `"  . wrap-with-back-quotes)
-                     )
-
+                     ))
 (sp--populate-keymap jsd-sp-bind)
