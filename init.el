@@ -117,6 +117,7 @@
     rust
     scheme
     shell-scripts
+    sml
 
     (javascript :variables
                 tern-command '("/usr/local/bin/tern")
@@ -154,7 +155,8 @@
   (setq-default
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path `(,(os-path "~/.spacemacs.d/layers/"))
-   dotspacemacs-configuration-layers `(,@dotspacemacs/layers/local
+   dotspacemacs-configuration-layers `(
+                                       ,@dotspacemacs/layers/local
                                        ,@dotspacemacs/layers/core
                                        ,@dotspacemacs/layers/langs
                                        ,@dotspacemacs/layers/extra))

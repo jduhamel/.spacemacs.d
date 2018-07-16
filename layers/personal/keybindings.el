@@ -4,7 +4,7 @@
 
 (require 'smartparens-config)
 
-defvar jsd-sp-bind '(
+(defvar jsd-sp-bind '(
                      ("C-M-a" . sp-beginning-of-sexp)
                      ("C-M-e" . sp-end-of-sexp)
                      ("C-<down>" . sp-down-sexp)
@@ -44,6 +44,6 @@ defvar jsd-sp-bind '(
                      ("C-c \"" . wrap-with-double-quotes)
                      ("C-c _"  . wrap-with-underscores)
                      ("C-c `"  . wrap-with-back-quotes)
-                     )
+                     ))
 
 (sp--populate-keymap jsd-sp-bind)
