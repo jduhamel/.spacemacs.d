@@ -317,6 +317,11 @@
   (setq insert-directory-program "/usr/local/bin/gls")
   (global-prettify-symbols-mode nil)
   (global-pretty-mode nil)
+  (setq cider-cljs-lein-repl
+	      "(do (require 'figwheel-sidecar.repl-api)
+         (figwheel-sidecar.repl-api/start-figwheel!)
+         (figwheel-sidecar.repl-api/cljs-repl))")
+
   (setq-default
    standard-indent 2
    tab-width 2
