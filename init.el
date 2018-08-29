@@ -315,6 +315,8 @@
   (setq mac-option-modifier 'super)
   (setq multi-term-program "/usr/local/bin/zsh")
   (setq insert-directory-program "/usr/local/bin/gls")
+  (global-prettify-symbols-mode nil)
+  (global-pretty-mode nil)
   (setq-default
    standard-indent 2
    tab-width 2
@@ -328,8 +330,6 @@
    web-mode-code-indent-offset 2
    web-mode-indent-style 2)
 
-
-
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
@@ -339,7 +339,6 @@
   "Personal configuration updates and experiments."
   (when ERIC-ONLY?
     (setq find-function-C-source-directory "~/dev/emacs-dev/src")
-
     (load-file (os-path "~/dev/hy-mode/hy-mode.el"))
     (load-file (os-path "~/dev/hy-mode/hy-personal.el"))
     (require 'hy-mode)

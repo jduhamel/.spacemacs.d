@@ -28,7 +28,7 @@
     :after prettify-utils macros
     :config
     (progn
-      ;(global-prettify-symbols-mode 1)
+      (global-prettify-symbols-mode -1)
 
       (setq hy-pretty-pairs
             (pretty-code-get-pairs
