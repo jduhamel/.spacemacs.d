@@ -112,7 +112,13 @@
     lua
     javascript
     react
-    go
+    lsp
+    (go :variables
+        gofmt-command "goreturns"
+        go-format-before-save t
+        godoc-at-point 'godoc-gogetdoc
+        go-backend 'lsp
+        go-use-gometalinter t)
     haskell
     rust
     scheme
