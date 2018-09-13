@@ -1,4 +1,4 @@
-;;; Setup
+;; Setup
 
 ;; -- Eric Kaschalk's Spacemacs Configuration --
 ;; -- Contact: ekaschalk@gmail.com --
@@ -113,12 +113,17 @@
     javascript
     react
     lsp
+    (treemacs :variables
+              treemacs-use-follow-mode t
+              treemacs-use-filewatch-mode t)
+
     (go :variables
         gofmt-command "goreturns"
         go-format-before-save t
         godoc-at-point 'godoc-gogetdoc
         go-backend 'lsp
         go-use-gometalinter t)
+
     haskell
     rust
     scheme
@@ -129,8 +134,8 @@
                 tern-command '("/usr/local/bin/tern")
                 js2-basic-offset 2
                 js-indent-level 2)
-    (clojure :variables
-             clojure-enable-fancify-symbols t)
+    clojure
+
     (haskell :variables
              haskell-completion-backend 'intero)
     (python :variables
@@ -211,8 +216,8 @@
                          solarized-light)
 
    dotspacemacs-default-font `("Operator Mono"  ; Note: Bought this font
-                               :size 16
-                               :powerline-scale 1.5)
+                               :size 18
+                               :powerline-scale 1.75)
 
    ;;dotspacemacs-fullscreen-at-startup (if linux? nil t)
    dotspacemacs-fullscreen-use-non-native nil
